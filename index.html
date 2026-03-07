@@ -1,33 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A05-Juhairul-B13</title> 
+    <title>Login | A05-Juhairul-B13</title>
 
     <!-- tailwind and daisyUI -->
-     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-<!-- font family -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
-<!-- internal css -->
+    <!-- internal css -->
 
-<style>
-
-    *{
-        font-family: "Geist", sans-serif;
-    }
-
-</style>
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
 
 </head>
-<body>
 
-    <h1 >Hello Assignment</h1>
-    
+<body class="w-[75vh] mx-auto mt-30 sm:mt-20 md:mt-2 rounded-md shadow-md ">
+
+    <!-- header section -->
+
+    <header class="space-y-3 pt-2">
+        <div>
+            <img class="mx-auto w-[20%] h-[20%]" src="./assets/github-logo.png" alt="">
+        </div>
+
+        <div class="text-center space-y-1">
+            <h2 class="text-xl font-bold">GitHub Issues Tracker</h2>
+
+            <h3 class="text-sm text-[#64748B]">Sign in to manage your issues</h3>
+        </div>
+    </header>
+
+
+    <main class=" ">
+
+        <!-- login form from daisyUI -->
+
+        <section class="mt-2  ">
+            <fieldset class="fieldset   rounded-box w-[68vh]   mx-auto ">
+
+                <label class="label font-semibold text-gray-700">Username</label>
+                <input type="text" class="input w-full" placeholder="Enter Username" />
+                <p class="text-[#4A00FF] mb-2">Default: admin</p>
+
+                <label class="label font-semibold text-gray-700">Password</label>
+                <input type="password" class="input w-full" placeholder="Enter Password" />
+                <p class="text-[#4A00FF] ">Default: admin123</p>
+
+
+                <button class="btn btn-neutral bg-[#4A00FF] mt-4">Sign In</button>
+            </fieldset>
+        </section>
+
+
+        <!-- or division -->
+      <div class="flex justify-between w-[90%] mx-auto mt-2">
+        <div class=" w-[45%] mt-3 border-t-1 border-gray-400"></div>
+        <p class="">OR</p>
+        <div class=" w-[45%] mt-3 border-t-1 border-gray-400"></div>
+      </div>
+
+
+      <!-- demo Credentials -->
+       <section class="mt-2 text-center space-y-2 w-[68vh] mx-auto rounded-xl">
+        <p class="text-[#64748B] text-[11px]">Demo Credentials:</p>
+        <div class="bg-gray-100 p-4">
+            <p class="text-sm"><span class="font-semibold ">Username:</span> admin</p>
+            <p class="text-sm"><span class="font-semibold ">Password:</span> admin123</p>
+        </div>
+       </section>
+
+
+    </main>
+
+
 </body>
+
 </html>
