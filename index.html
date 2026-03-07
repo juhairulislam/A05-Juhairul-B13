@@ -49,16 +49,16 @@
         <section class="mt-2  ">
             <fieldset class="fieldset   rounded-box w-[68vh]   mx-auto ">
 
-                <label class="label font-semibold text-gray-700">Username</label>
-                <input type="text" class="input w-full" placeholder="Enter Username" />
+                <label  class="label font-semibold text-gray-700">Username</label>
+                <input id="username" type="text" class="input w-full" placeholder="Enter Username" />
                 <p class="text-[#4A00FF] mb-2">Default: admin</p>
 
                 <label class="label font-semibold text-gray-700">Password</label>
-                <input type="password" class="input w-full" placeholder="Enter Password" />
+                <input id="password" type="password" class="input w-full" placeholder="Enter Password" />
                 <p class="text-[#4A00FF] ">Default: admin123</p>
 
 
-                <button class="btn btn-neutral bg-[#4A00FF] mt-4">Sign In</button>
+                <button onclick="signin()" class="btn btn-neutral bg-[#4A00FF] mt-4">Sign In</a></button>
             </fieldset>
         </section>
 
@@ -83,7 +83,7 @@
 
     </main>
 
-
+<script src="./script.js"></script>
 </body>
 
 </html>
