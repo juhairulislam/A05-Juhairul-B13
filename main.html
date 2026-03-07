@@ -41,34 +41,91 @@
         <div class="flex flex-col md:flex-row justify-between bg-base-100 shadow-sm">
             <div class="navbar justify-center md:justify-between">
                 <div class="flex items-center ml-0  md:ml-8  ">
-                    <img class="w-[1em] md:w-[2em]" w src="./assets/github-logo.png" alt="">
-                    <a class="btn btn-ghost text-[63%]  md:text-xl pl-1 pr-0 ">GitHub Issues Tracker</a>
+                    <img class="w-[2em] md:w-[2em]" w src="./assets/github-logo.png" alt="">
+                    <a class="btn btn-ghost text-[2em]  md:text-xl pl-1 pr-0 ">GitHub Issues Tracker</a>
                 </div>
-               
+
             </div>
 
-             <div class="flex flex-col md:flex-row mx-8  gap-2 mt-0 mr-8 items-center">
-                    <label class="input w-[8em] md:w-[15em] h-[2em] md:h-[2.5em] ">
-                        <svg class="h-[1.5em] opacity-50 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
-                                stroke="currentColor">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.3-4.3"></path>
-                            </g>
-                        </svg>
-                        <input type="search" required placeholder="Search issues..." />
-                    </label>
-                    <div class="justify-center">
-                        <div tabindex="0" role="button" class="">
-                            <div class="">
-                                <button class="bg-[#4A00FF] text-white p-2 rounded h-[2.5em] md:h-[2.7em] w-[7em] text-center text-[0.8em] md:text-sm mb-2 md:mb-0">+ New Issue</button>
-                            </div>
+            <div class="flex  mx-8  gap-2 mt-4 md:mt-0 mr-8 items-center justify-center mb-4 md:mb-0">
+                <label class="input w-[15em] h-[2.5em] ">
+                    <svg class="h-[1.5em] opacity-50 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                            stroke="currentColor">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                    </svg>
+                    <input type="search" required placeholder="Search issues..." />
+                </label>
+                <div class="justify-center">
+                    <div tabindex="0" role="button" class="">
+                        <div class="">
+                            <button
+                                class="bg-[#4A00FF] text-white p-2 rounded h-[2.7em] w-[7em] text-center text-[0.8em] md:text-sm mb-0">+
+                                New Issue</button>
                         </div>
-
                     </div>
+
                 </div>
+            </div>
         </div>
     </header>
+
+
+    <main class="container mx-auto ">
+
+        <!-- three button -->
+
+        <div class=" shadow rounded mt-10 mb-4 p-5 ">
+
+            <button class="border-1 border-gray-200 px-6 rounded text-white mr-2 bg-[#4A00FF]">All</button>
+            <button class="border-1 border-gray-200 px-6 rounded text-[#64748B] mr-2">Open</button>
+            <button class="border-1 border-gray-200 px-6 rounded text-[#64748B] mr-2">Closed</button>
+
+        </div>
+
+
+         <!-- issues container -->
+        <section class="shadow rounded p-2 flex justify-between">
+
+           <!-- issues left container -->
+            <div class="flex items-center gap-2">
+                   <!-- issues image -->
+                <div class="bg-[#ECE4FF] rounded-full w-[3em] h-[3em] flex items-center justify-center">
+                    <img class="w-[2em] h-[2em] " src="./assets/Aperture.png" alt="">
+                    
+
+                </div>
+
+                <!-- issues text left -->
+
+                <div class="">
+                    <p class="font-bold"><span id="issue-count">50</span> Issues</p>
+                    <p class="text-[14px] text-[#64748B]">Track and manage your project issues</p>
+                </div>
+
+            </div>
+
+
+            <!-- issues right container -->
+             <div class="flex items-center gap-1 ">
+                <div class="bg-[#00A96E] w-[0.5em] h-[0.5em] rounded-full" ></div>
+                <p class="text-[12px] font-semibold mr-2">Open</p>
+
+                 <div class="flex items-center gap-1">
+                <div class="bg-[#A855F7] w-[0.5em] h-[0.5em] rounded-full" ></div>
+                <p class="text-[12px] font-semibold">Closed</p>
+             </div>
+             </div>
+
+            
+
+        </section>
+
+
+
+    </main>
 
 
     <script src="./script.js"></script>
