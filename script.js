@@ -87,7 +87,7 @@ async function clickedBtn(btnName) {
 
     if (btnName === 'open') {
 
-        allBtn.classList.remove('text-white', 'bg-[#4A00FF]');
+        allBtn.classList.remove('text-white', 'bg-[#4A00FF]' );
         closedBtn.classList.remove('text-white', 'bg-[#4A00FF]');
         openBtn.classList.add('text-white', 'bg-[#4A00FF]') ;
 
@@ -205,3 +205,39 @@ async function displayCard(allData) {
 // displayCard()
 
 loadingAllCard()
+
+
+
+// search function 
+
+document.getElementById('btn-search').addEventListener('click' ,async ()=>{
+
+
+    closedBtn.classList.remove('text-white', 'bg-[#4A00FF]');
+    openBtn.classList.remove('text-white', 'bg-[#4A00FF]') ;
+     allBtn.classList.add('text-white', 'bg-[#4A00FF]' );
+
+    const input = document.getElementById('input-search') ;
+    const searchValue = input.value.trim().toLowerCase() ;
+    // console.log(searchValue) ;
+    if(searchValue.length === 0){
+        alert('Please Search Something') ;
+        return ;
+    } 
+
+    spinner(true)
+
+    const res =await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`); 
+
+    const data =await res.json() ;
+
+    const allData = data.data ;
+
+    spinner(false)
+
+    // console.log(allData)
+
+        displayCard(allData) ;
+        countIssue() ;
+
+})
