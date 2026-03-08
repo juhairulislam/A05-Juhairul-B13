@@ -183,7 +183,7 @@ async function displayCard(allData) {
 
                 <!-- card footer -->
 
-                 <div class="my-4 border-t-1 border-[#64748B80] p-2">
+                 <div class="my-4 border-t-1 border-[#64748B80] p-2 m-2">
                      <p class="text-[#64748B]">${datum.assignee}</p>
                     <p class="text-[#64748B]">${new Date(datum.createdAt).toLocaleDateString()}</p>
                 </div>
