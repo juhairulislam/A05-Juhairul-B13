@@ -77,11 +77,14 @@
 
         <!-- three button -->
 
-        <div class=" shadow rounded mt-10 mb-4 p-5 ">
+        <div id="btn-container" class=" shadow rounded mt-10 mb-4 p-5 ">
 
-            <button class="border-1 border-gray-200 px-6 rounded text-white mr-2 bg-[#4A00FF]">All</button>
-            <button class="border-1 border-gray-200 px-6 rounded text-[#64748B] mr-2">Open</button>
-            <button class="border-1 border-gray-200 px-6 rounded text-[#64748B] mr-2">Closed</button>
+            <button id="all-btn" onclick="clickedBtn('all')"
+                class="border-1 border-gray-200 px-6 rounded text-white mr-2 bg-[#4A00FF]">All</button>
+            <button id="open-btn" onclick="clickedBtn('open')"
+                class="border-1 border-gray-200 px-6 rounded text-[#64748B] mr-2">Open</button>
+            <button id="closed-btn" onclick="clickedBtn('closed')"
+                class="border-1 border-gray-200 px-6 rounded text-[#64748B] mr-2">Closed</button>
 
         </div>
 
@@ -128,10 +131,10 @@
 
         <section id="all-card-container" class="grid grid-cols-1 md:grid-cols-4 shadow rounded p-8 md:p-4  gap-4">
 
-            
 
 
-        
+
+
 
         </section>
 

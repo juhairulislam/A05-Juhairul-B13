@@ -1,3 +1,10 @@
+const allBtn = document.getElementById('all-btn')
+const openBtn = document.getElementById('open-btn');
+const closedBtn = document.getElementById('closed-btn'); 
+let issueCount = document.getElementById('issue-count') ;
+const allCardContainer = document.getElementById('all-card-container')
+
+
 
 // signin functionality
 
@@ -6,9 +13,9 @@ function signin() {
     const username = document.getElementById('username');
     usernameValue = username.value;
 
-const password = document.getElementById('password');
- passwordValue = password.value;
- 
+    const password = document.getElementById('password');
+    passwordValue = password.value;
+
 
     // console.log(usernameValue, passwordValue);
 
@@ -23,7 +30,7 @@ const password = document.getElementById('password');
     }
 
     else {
-        alert('Login Successful') ;
+        alert('Login Successful');
         window.location.assign('./main.html')
 
     }
@@ -31,35 +38,100 @@ const password = document.getElementById('password');
 
 
 
-// loading all card
+// issue count 
+function countIssue(){
 
-async function loadingAllCard(){
+    issueCount.innerText = allCardContainer.children.length ;
 
-    const res =await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues") ;
-    const data = await res.json() ;
-    displayCard(data.data) ;
-    console.log(data)
+    // console.log(allCardContainer.children.length)
+
+
+
 }
 
 
-async function displayCard(allData){
 
-    const allCardContainer = document.getElementById('all-card-container') ;
 
-    allCardContainer.innerHTML = '' ;
+// dynamically show open or closed card after clicked 
+
+async function clickedBtn(btnName) {
+
+    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+    const data = await res.json();
+    const allData = data.data;
+
+
+    if (btnName === 'open') {
+
+        allBtn.classList.remove('text-white', 'bg-[#4A00FF]');
+        closedBtn.classList.remove('text-white', 'bg-[#4A00FF]');
+        openBtn.classList.add('text-white', 'bg-[#4A00FF]') ;
+
+        filteredData = allData.filter(item => item.status === 'open');
+        displayCard(filteredData) ;
+        countIssue()
+    }
+
+    else if (btnName === 'closed') {
+
+        allBtn.classList.remove('text-white', 'bg-[#4A00FF]');
+        openBtn.classList.remove('text-white', 'bg-[#4A00FF]' )
+        closedBtn.classList.add('text-white', 'bg-[#4A00FF]');
+
+        filteredData = allData.filter(item => item.status === 'closed');
+
+
+        displayCard(filteredData) ;
+        countIssue()
+    }
+
+    else {
+
+        closedBtn.classList.remove('text-white', 'bg-[#4A00FF]');
+        openBtn.classList.remove('text-white', 'bg-[#4A00FF]' )
+         allBtn.classList.add('text-white', 'bg-[#4A00FF]');
+
+        displayCard(allData) ;
+        countIssue()
+    }
+
+
+
+
+
+}
+
+
+
+// loading all card
+
+async function loadingAllCard() {
+
+    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+    const data = await res.json();
+    displayCard(data.data);
+    // console.log(data)
+}
+
+
+async function displayCard(allData) {
+
+    const allCardContainer = document.getElementById('all-card-container');
+
+    allCardContainer.innerHTML = '';
 
 
     allData.forEach((datum) => {
 
-        const createdCard = document.createElement('div') ;
-        createdCard.className = `card-container shadow rounded border-t-4 ${datum.status === 'open'? 'border-green-500' : 'border-purple-500' }  ` ;
+        const createdCard = document.createElement('div');
+        createdCard.className = `card-container shadow rounded border-t-4 ${datum.status === 'open' ? 'border-green-500' : 'border-purple-500'}  `;
 
         createdCard.innerHTML = `
 
           <!-- card head -->
                 <div class=" flex justify-between p-2">
-                    ${datum.status === 'open'? '<img src="./assets/Open-Status.png" alt=""></img>':'<img src="./assets/Closed-Status .png" alt=""></img>' }
-                    <button class="${datum.priority === 'high'? 'bg-red-100 text-red-500' : datum.priority === 'medium'?'bg-[#FFF8DB] text-[#D97706]'  : 'text-[#9CA3AF] bg-[#EEEFF2]' } px-4 rounded-xl  text-[0.8em]">${datum.priority.toUpperCase()}</button>
+                    ${datum.status === 'open' ? '<img src="./assets/Open-Status.png" alt=""></img>' : '<img src="./assets/Closed-Status .png" alt=""></img>'}
+                    <button class="${datum.priority === 'high' ? 'bg-red-100 text-red-500' : datum.priority === 'medium' ? 'bg-[#FFF8DB] text-[#D97706]' : 'text-[#9CA3AF] bg-[#EEEFF2]'} px-4 rounded-xl  text-[0.8em]">${datum.priority.toUpperCase()}</button>
                 </div>
 
 
@@ -76,8 +148,8 @@ async function displayCard(allData){
                 <!-- card labels -->
 
                 <div class="flex gap-1 mt-3">
-                    ${datum.labels?.[0]? `<button class="${datum.labels[0].length >3? 'px-1 py-0.2  border-green-300 bg-green-50 text-green-500' : 'px-3 py-0.3 border-red-300  bg-red-50 text-red-500' } text-[0.7em] rounded-2xl border-2 ">${datum.labels[0].toUpperCase()}</button>` : ''}
-                    ${datum.labels?.[1]? `<button class="${datum.labels[1].length >3? 'px-1 py-0.2 ':'px-3 py-0.3'} rounded-2xl border-2  border-[#FDE68A] text-[0.7em] bg-[#FFF8DB] text-[#D97706]">${datum.labels[1].toUpperCase()}</button>` : ''}
+                    ${datum.labels?.[0] ? `<button class="${datum.labels[0].length > 3 ? 'px-1 py-0.2  border-green-300 bg-green-50 text-green-500' : 'px-3 py-0.3 border-red-300  bg-red-50 text-red-500'} text-[0.7em] rounded-2xl border-2 ">${datum.labels[0].toUpperCase()}</button>` : ''}
+                    ${datum.labels?.[1] ? `<button class="${datum.labels[1].length > 3 ? 'px-1 py-0.2 ' : 'px-3 py-0.3'} rounded-2xl border-2  border-[#FDE68A] text-[0.7em] bg-[#FFF8DB] text-[#D97706]">${datum.labels[1].toUpperCase()}</button>` : ''}
                 </div>
 
               </div>
