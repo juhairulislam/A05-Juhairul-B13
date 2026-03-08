@@ -2,7 +2,8 @@ const allBtn = document.getElementById('all-btn')
 const openBtn = document.getElementById('open-btn');
 const closedBtn = document.getElementById('closed-btn'); 
 let issueCount = document.getElementById('issue-count') ;
-const allCardContainer = document.getElementById('all-card-container')
+const allCardContainer = document.getElementById('all-card-container') ;
+const spinnerGet = document.getElementById('spinner')
 
 
 
@@ -51,14 +52,37 @@ function countIssue(){
 
 
 
+// loading spinner 
+
+function spinner(status){
+
+    if(status === true){
+        allCardContainer.classList.add('hidden');
+        spinnerGet.classList.remove('hidden')
+
+    } else{
+
+        spinnerGet.classList.add('hidden')
+         allCardContainer.classList.remove('hidden');
+
+    }
+}
+
+
+
+
+
 
 // dynamically show open or closed card after clicked 
 
 async function clickedBtn(btnName) {
 
+    spinner(true) ;
+
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     const allData = data.data;
+    spinner(false) ;
 
 
     if (btnName === 'open') {
@@ -107,8 +131,11 @@ async function clickedBtn(btnName) {
 
 async function loadingAllCard() {
 
+    spinner(true) ;
+
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
+    spinner(false) ;
     displayCard(data.data);
     // console.log(data)
 }
