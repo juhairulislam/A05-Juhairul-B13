@@ -28,11 +28,14 @@
 
 </head>
 
-<body class="w-[75vh] mx-auto mt-30 sm:mt-20 md:mt-10 rounded-md shadow-xl">
+<body class="min-h-screen  flex justify-center items-center ">
 
     <!-- header section -->
 
-    <header class="space-y-3 pt-2">
+ <main class="mx-auto px-4 md:px-10 w-[90%] md:w-[45%] rounded-md shadow-xl ">
+
+
+     <header class="space-y-3 pt-2">
         <div>
             <img class="mx-auto w-[20%] h-[20%]" src="./assets/github-logo.png" alt="">
         </div>
@@ -45,23 +48,21 @@
     </header>
 
 
-    <main class=" ">
-
         <!-- login form from daisyUI -->
 
         <section class="mt-2  ">
-            <fieldset class="fieldset   rounded-box w-[68vh]   mx-auto ">
+            <fieldset class="fieldset rounded-box mx-auto ">
 
                 <label  class="label font-semibold text-gray-700">Username</label>
-                <input  id="username" type="text" class="input w-full" placeholder="Enter Username" />
+                <input  id="username" type="text" class="input w-[80%] md:w-full" placeholder="Enter Username" />
                 <p class="text-[#4A00FF] mb-2">Default: admin</p>
 
                 <label class="label font-semibold text-gray-700">Password</label>
-                <input  id="password" type="password" class="input w-full" placeholder="Enter Password" />
+                <input  id="password" type="password" class="input w-[80%] md:w-full" placeholder="Enter Password" />
                 <p class="text-[#4A00FF] ">Default: admin123</p>
 
 
-                <button onclick="signin()" class="btn btn-neutral bg-[#4A00FF] mt-4">Sign In</a></button>
+                <button onclick="signin()" class="btn btn-neutral bg-[#4A00FF] mt-4 w-[80%] md:w-full">Sign In</a></button>
             </fieldset>
         </section>
 
@@ -75,7 +76,7 @@
 
 
       <!-- demo Credentials -->
-       <section class="mt-2 text-center space-y-2 w-[68vh] mx-auto rounded-xl pb-6">
+       <section class="mt-2 text-center space-y-2 mx-auto rounded-xl pb-4">
         <p class="text-[#64748B] text-[11px]">Demo Credentials:</p>
         <div class="bg-gray-100 p-4">
             <p class="text-sm"><span class="font-semibold ">Username:</span> admin</p>
