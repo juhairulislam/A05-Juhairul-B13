@@ -154,58 +154,14 @@
 
 
     <!-- Open the modal using ID.showModal() method -->
-    <button class="btn" onclick="card_modal.showModal()">open modal</button>
+    <button class="btn" >open modal</button>
     <dialog id="card_modal" class="modal">
-        <div class="modal-box">
+        <div id="modal_container" class="modal-box">
 
-            <!-- modal header -->
-
-            <div class="space-y-4 text-center ">
-
-                <h1 class="font-bold  text-left text-[1.5em]">Fix broken image uploads</h1>
-
-                <div class="flex gap-1.5">
-                    <button class="rounded-2xl text-[0.8em] text-white bg-[#00A96E] px-3 py-1">Opened</button>
-                    <p class=" py-1 text-[0.8em] font-bold text-[#64748B]">•</p>
-                    <p class=" py-1 text-[0.8em] text-[#64748B]">Opened by Fahim Ahmed</p>
-                    <p class=" py-1 text-[0.8em] font-bold text-[#64748B]">•</p>
-                    <p class=" py-1 text-[0.8em] text-[#64748B]">1/2/3</p>
-                </div>
-            </div>
-
-            <!-- labels -->
-            <div class="my-6 flex gap-1">
-                <button class="border-2 text-[0.8em] border-red-200 text-red-400 bg-red-100 rounded-2xl px-2 py-0.2">BUG</button>
-                <button class="border-2 text-[0.8em] border-[#FDE68A] rounded-2xl bg-[#FFF8DB] text-[#D97706] px-2 py-0.2">HELP WANTED</button>
-            </div>
-
-            <!-- description -->
-             <div>
-                <p class="text-[#64748B] text-[0.9em] ">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
-             </div>
-
-             <!-- assignee and priority box -->
-              <div class="bg-gray-50 rounded-md p-4 my-4 flex gap-30">
-
-                <div class="">
-                    <p class="text-[#64748B] text-[0.8em]">Assignee:</p>
-                    <p class="font-semibold text-[0.9em]">Fahim Ahmed</p>
-                </div>
-
-                <div class="">
-                    <p class="text-[#64748B] text-[0.8em]">Priority:</p>
-                    <button class="px-3  py-0.2 text-[0.7em] bg-red-500 rounded-2xl text-white">HIGH</button>
-                </div>
-              </div>
+          
 
 
-
-            <div class="modal-action">
-                <form method="dialog">
-                    <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn btn-primary">Close</button>
-                </form>
-            </div>
+           
         </div>
     </dialog>
 

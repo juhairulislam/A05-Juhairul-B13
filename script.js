@@ -156,7 +156,7 @@ async function displayCard(allData) {
         createdCard.innerHTML = `
 
           <!-- card head -->
-                <div class=" flex justify-between p-2">
+                <div class=" flex justify-between p-2" onclick="modalShow(${datum.id})">
                     ${datum.status === 'open' ? '<img src="./assets/Open-Status.png" alt=""></img>' : '<img src="./assets/Closed-Status .png" alt=""></img>'}
                     <button class="${datum.priority === 'high' ? 'bg-red-100 text-red-500' : datum.priority === 'medium' ? 'bg-[#FFF8DB] text-[#D97706]' : 'text-[#9CA3AF] bg-[#EEEFF2]'} px-4 rounded-xl  text-[0.8em]">${datum.priority.toUpperCase()}</button>
                 </div>
@@ -164,7 +164,7 @@ async function displayCard(allData) {
 
                 <!-- card main and labels container -->
 
-              <div class="p-2 ">
+              <div class="p-2 " onclick="modalShow(${datum.id})">
                   <!-- card main -->
 
                 <div class="space-y-3 h-[7.5em] ">
@@ -183,7 +183,7 @@ async function displayCard(allData) {
 
                 <!-- card footer -->
 
-                 <div class="my-4 border-t-1 border-[#64748B80] p-2 m-2">
+                 <div class="my-4 border-t-1 border-[#64748B80] p-2 m-2" onclick="modalShow(${datum.id})">
                      <p class="text-[#64748B]">${datum.assignee}</p>
                     <p class="text-[#64748B]">${new Date(datum.createdAt).toLocaleDateString()}</p>
                 </div>
@@ -205,6 +205,90 @@ async function displayCard(allData) {
 // displayCard()
 
 loadingAllCard()
+
+
+
+// modal function 
+
+async function modalShow(id){
+
+    const res =await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`) ;
+    const data =await res.json();
+    displayModal(data.data) ;
+}   
+
+
+
+
+
+
+// display modal 
+
+async function displayModal(details){
+
+    console.log(details)
+
+    const takeDiv = document.getElementById('modal_container') ;
+
+    takeDiv.innerHTML = '' ;
+
+    takeDiv.innerHTML = `
+
+      <!-- modal header -->
+
+            <div class="space-y-4 text-center ">
+
+                <h1 class="font-bold  text-left text-[1.5em]">${details.title}</h1>
+
+                <div class="flex gap-1.5">
+                    <button class="rounded-2xl text-[0.8em] text-white ${details.status === 'open'?'bg-[#00A96E]' : 'bg-purple-500' }  px-3 py-1 border-none ">${details.status}</button>
+                    <p class=" py-1 text-[0.8em] font-bold text-[#64748B]">•</p>
+                    <p class=" py-1 text-[0.8em] text-[#64748B]">Opened by ${details.author}</p>
+                    <p class=" py-1 text-[0.8em] font-bold text-[#64748B]">•</p>
+                    <p class=" py-1 text-[0.8em] text-[#64748B]">${new Date(details.updatedAt).toLocaleDateString()}</p>
+                </div>
+            </div>
+
+            <!-- labels -->
+            <div class="my-6 flex gap-1">
+               ${details.labels?.[0]?  `<button class="${details.labels[0].length > 3? 'px-1 py-0.2  border-green-300 bg-green-50 text-green-500' :  'px-3 py-0.3 border-red-300  bg-red-50 text-red-500' } border-2 text-[0.8em]  rounded-2xl ">${details.labels[0].toUpperCase()}</button>` : '' }
+                 ${details.labels?.[1] ? `<button class="${details.labels[1].length > 3 ? 'px-1 py-0.2 ' : 'px-3 py-0.3'} rounded-2xl border-2  border-[#FDE68A] text-[0.7em] bg-[#FFF8DB] text-[#D97706]">${details.labels[1].toUpperCase()}</button>` : ''}
+
+            </div>
+
+            <!-- description -->
+             <div>
+                <p class="text-[#64748B] text-[0.9em] ">${details.description}</p>
+             </div>
+
+             <!-- assignee and priority box -->
+              <div class="bg-gray-50 rounded-md p-4 my-4 flex gap-30">
+
+                <div class="">
+                    <p class="text-[#64748B] text-[0.8em]">Assignee:</p>
+                    <p class="font-semibold text-[0.9em]">${details.author}</p>
+                </div>
+
+                <div class="">
+                    <p class="text-[#64748B] text-[0.9em] text-center">Priority:</p>
+                     <button class="${details.priority === 'high' ? 'bg-red-500 text-white' : details.priority === 'medium' ? 'bg-[#D97706] text-white' : 'text-white bg-gray-500'} px-3 rounded-xl  text-[0.7em]">${details.priority.toUpperCase()}</button>
+                </div>
+              </div>
+
+               <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn btn-primary">Close</button>
+                </form>
+            </div>
+
+    
+    
+    `
+    document.getElementById('card_modal').showModal()
+
+    
+}
 
 
 
