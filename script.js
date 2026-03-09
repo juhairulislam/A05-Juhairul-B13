@@ -158,7 +158,7 @@ async function displayCard(allData) {
           <!-- card head -->
                 <div class=" flex justify-between p-2" onclick="modalShow(${datum.id})">
                     ${datum.status === 'open' ? '<img src="./assets/Open-Status.png" alt=""></img>' : '<img src="./assets/Closed-Status .png" alt=""></img>'}
-                    <button class="${datum.priority === 'high' ? 'bg-red-100 text-red-500' : datum.priority === 'medium' ? 'bg-[#FFF8DB] text-[#D97706]' : 'text-[#9CA3AF] bg-[#EEEFF2]'} px-4 rounded-xl  text-[0.8em]">${datum.priority.toUpperCase()}</button>
+                    <button class="${datum.priority === 'high' ? 'bg-red-100 text-red-500' : datum.priority === 'medium' ? 'bg-[#FFF8DB] text-[#D97706]' : 'text-gray-600 bg-[#EEEFF2]'} px-4 rounded-xl  text-[0.8em]">${datum.priority.toUpperCase()}</button>
                 </div>
 
 
