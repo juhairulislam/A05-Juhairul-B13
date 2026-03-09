@@ -241,11 +241,11 @@ async function displayModal(details){
                 <h1 class="font-bold  text-left text-[1.5em]">${details.title}</h1>
 
                 <div class="flex gap-1.5">
-                    <button class="rounded-2xl text-[0.8em] text-white ${details.status === 'open'?'bg-[#00A96E]' : 'bg-purple-500' }  px-3 py-1 border-none ">${details.status}</button>
-                    <p class=" py-1 text-[0.8em] font-bold text-[#64748B]">•</p>
-                    <p class=" py-1 text-[0.8em] text-[#64748B]">Opened by ${details.author}</p>
-                    <p class=" py-1 text-[0.8em] font-bold text-[#64748B]">•</p>
-                    <p class=" py-1 text-[0.8em] text-[#64748B]">${new Date(details.updatedAt).toLocaleDateString()}</p>
+                    <button class="rounded-2xl text-[0.7em] md:text-[0.8em] text-white ${details.status === 'open'?'bg-[#00A96E]' : 'bg-purple-500' }  px-2 md:px-3 py-1 border-none ">${details.status}</button>
+                    <p class=" py-1 text-[0.7em] md:text-[0.8em] font-bold text-[#64748B]">•</p>
+                    <p class=" py-1 text-[0.7em] md:text-[0.8em] text-[#64748B]">Opened by ${details.author}</p>
+                    <p class=" py-1 text-[0.7em] md:text-[0.8em] font-bold text-[#64748B]">•</p>
+                    <p class=" py-1 text-[0.7em] md:text-[0.8em] text-[#64748B]">${new Date(details.updatedAt).toLocaleDateString()}</p>
                 </div>
             </div>
 
